@@ -71,6 +71,7 @@ def subscribe_intent_callback(hermes, intent_message):
             result_sentence = "Wir haben gerade die Stunde {hours}".format(hours=hours)
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
+    
     elif intentname == user_intent("takeYourMeds"):
         result_sentence = "Du solltest deine Medikamente nehmen!"
         current_session_id = intent_message.session_id
