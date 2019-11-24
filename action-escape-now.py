@@ -4,13 +4,13 @@ from hermes_python.hermes import Hermes, MqttOptions
 import datetime
 import random
 import toml
-
+import random
 
 USERNAME_INTENTS = "RedStriped"
 MQTT_BROKER_ADDRESS = "localhost:1883"
 MQTT_USERNAME = None
 MQTT_PASSWORD = None
-
+NAMES = ["Olaf", "Elsa", "Anna", "Christoph", "Sven"]
 
 def user_intent(intentname):
     return USERNAME_INTENTS + ":" + intentname
@@ -73,7 +73,8 @@ def subscribe_intent_callback(hermes, intent_message):
         hermes.publish_end_session(current_session_id, result_sentence)
     
     elif intentname == user_intent("takeYourMeds"):
-        result_sentence = "Du solltest deine Medikamente nehmen!"
+        name = random.choice(NAMES)
+        result_sentence = "{name} ist cool!".format(name=name)
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
