@@ -4,13 +4,13 @@ from hermes_python.hermes import Hermes, MqttOptions
 import datetime
 import random
 import toml
-import random
 
 USERNAME_INTENTS = "RedStriped"
 MQTT_BROKER_ADDRESS = "localhost:1883"
 MQTT_USERNAME = None
 MQTT_PASSWORD = None
 NAMES = ["Olaf", "Elsa", "Anna", "Christoph", "Sven"]
+PASS1, PASS2, PASS3, PASS4 = "False "
 
 def user_intent(intentname):
     return USERNAME_INTENTS + ":" + intentname
@@ -74,9 +74,19 @@ def subscribe_intent_callback(hermes, intent_message):
     
     elif intentname == user_intent("takeYourMeds"):
         name = random.choice(NAMES)
+        NAMES = NAMES.remove(name)
         result_sentence = "{name} ist cool!".format(name=name)
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("reset")
+        result_sentence = "Reset was used"
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+def resetGame():
+    PASS1, PASS2, PASS3, PASS4 = False
+    PLAYING = FALSE
 
 if __name__ == "__main__":
     snips_config = toml.load('/etc/snips.toml')
