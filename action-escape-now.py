@@ -9,8 +9,9 @@ USERNAME_INTENTS = "RedStriped"
 MQTT_BROKER_ADDRESS = "localhost:1883"
 MQTT_USERNAME = None
 MQTT_PASSWORD = None
-NAMES = ["Olaf", "Elsa", "Anna", "Christoph", "Sven"]
-PASS1, PASS2, PASS3, PASS4 = "False "
+NAMES = ["Hannah Ahlers", "Joshua Becker", "Theodor van Campen", "Tim Diefenthaler", "Pia Engel", "Mia Fuchs", "Tim Garlich", "Fridolin Hacker", "Lara Ihmken", "Eric zu Jeddeloh",
+"Tim Krüger", "Joshua Lehmann", "Pia Müller", "Hannah Neemeyer", "Liam Ohsenbeck", "Laura Peters", "Jonas Quathammer", "Tom Raabe", "Bob Schneider", "Lara Thiesmeyer",
+"Anna Ullrichs", "Ursula Voigt", "Tom Wolff", "Thomas Xylander", "Jonas Yost", "Thomas Zimmermann"]
 
 def user_intent(intentname):
     return USERNAME_INTENTS + ":" + intentname
@@ -19,74 +20,147 @@ def user_intent(intentname):
 def subscribe_intent_callback(hermes, intent_message):
     intentname = intent_message.intent.intent_name
 
-    if intentname == user_intent("currentDate"):
-        year = datetime.datetime.now().year
-        month = datetime.datetime.now().month
-        day = datetime.datetime.now().day
-        weekday = datetime.datetime.now().isoweekday()
-        weekday_list = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag']
-        result_sentence = "Heute ist {0}, der {1}.{2}.{3} .".format(weekday_list[weekday - 1], day, month, year)
-        current_session_id = intent_message.session_id
-        hermes.publish_end_session(current_session_id, result_sentence)
-
-    elif intentname == user_intent("currentTime"):
-        hours = datetime.datetime.now().hour
-        minutes = datetime.datetime.now().minute
-        if minutes == 0:
-            minutes = ""
-        if hours == 1:
-            result_sentence = "ein Uhr {0} .".format(minutes)
-        else:
-            result_sentence = "{0} Uhr {1} .".format(hours, minutes)
-        first_part = ["Gerade ist es", "Es ist jetzt", "Es ist", "Die aktuelle Zeit ist"]
-        result_sentence = random.choice(first_part) + " " + result_sentence
-        current_session_id = intent_message.session_id
-        hermes.publish_end_session(current_session_id, result_sentence)
-
-    elif intentname == user_intent("weekNumber"):
-        datetime_str = intent_message.slots.date.first().value[:-10]
-        datetime_obj = datetime.datetime.strptime(datetime_str, "%Y-%m-%d %H:%M")
-        result_sentence = "An diesem Datum ist die Kalenderwoche {0}".format(datetime_obj.isocalendar()[1])
-        current_session_id = intent_message.session_id
-        hermes.publish_end_session(current_session_id, result_sentence)
-
-    elif intentname == user_intent("dateInfo"):
-        result_sentence = "Diese Funktion ist noch nicht vorhanden, wird aber bald hinzugefuegt."
-        datetype = intent_message.slots.datetype.first().value
-        if datetype == 'weekday' or 'wochentag' in datetype:
-            weekday = datetime.datetime.now().isoweekday()
-            weekday_list = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag']
-            result_sentence = "Heute haben wir {weekday}.".format(weekday=weekday_list[weekday - 1])
-        elif datetype == 'year':
-            year = datetime.datetime.now().year
-            result_sentence = "Wir sind im Jahr {year}".format(year=year)
-        elif datetype == 'weeknumber' or 'kw' in datetype:
-            weeknumber = datetime.datetime.now().isocalendar()[1]
-            result_sentence = "Wir haben gerade die Kalenderwoche {weeknumber}".format(weeknumber=weeknumber)
-        elif datetype == 'minute':
-            minutes = datetime.datetime.now().minute
-            result_sentence = "Wir haben die Minute {minutes}".format(minutes=minutes)
-        elif datetype == 'hour':
-            hours = datetime.datetime.now().hour
-            result_sentence = "Wir haben gerade die Stunde {hours}".format(hours=hours)
-        current_session_id = intent_message.session_id
-        hermes.publish_end_session(current_session_id, result_sentence)
-    
-    elif intentname == user_intent("takeYourMeds"):
+    if intentname == user_intent("takeYourMeds"):
         name = random.choice(NAMES)
-        NAMES = NAMES.remove(name)
         result_sentence = "{name} ist cool!".format(name=name)
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
-    elif intentname == user_intent("reset")
-        result_sentence = "Reset was used"
+    elif intentname == user_intent("Adler"):
+        result_sentence = NAMES[0]
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
-def resetGame():
-    PASS1, PASS2, PASS3, PASS4 = False
-    PLAYING = FALSE
+    elif intentname == user_intent("Apfel"):
+        result_sentence = NAMES[25]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Becken"):
+        result_sentence = NAMES[1]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Explosion"):
+        result_sentence = NAMES[24]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Zwerg"):
+        result_sentence = NAMES[2]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Decepticon"):
+        result_sentence = NAMES[23]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Elch"):
+        result_sentence = NAMES[3]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Smiley"):
+        result_sentence = NAMES[22]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Schwellkoerper"):
+        result_sentence = NAMES[4]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Murmeltier"):
+        result_sentence = NAMES[21]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Baum"):
+        result_sentence = NAMES[5]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Frau"):
+        result_sentence = NAMES[20]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("OffeneHaende"):
+        result_sentence = NAMES[6]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Kolibri"):
+        result_sentence = NAMES[19]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Vampir"):
+        result_sentence = NAMES[7]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Hexe"):
+        result_sentence = NAMES[18]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Nichts"):
+        result_sentence = NAMES[8]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Teufel"):
+        result_sentence = NAMES[17]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Schaedel"):
+        result_sentence = NAMES[9]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Panda"):
+        result_sentence = NAMES[16]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Reproduktionssystem"):
+        result_sentence = NAMES[10]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Hase"):
+        result_sentence = NAMES[15]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Pfau"):
+        result_sentence = NAMES[11]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Hasenkampf"):
+        result_sentence = NAMES[14]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Koch"):
+        result_sentence = NAMES[12]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Raumschiff"):
+        result_sentence = NAMES[13]
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Lunge"):
+        name = random.choice(NAMES)
+        result_sentence = "{name} ist cool!".format(name=name)
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
 
 if __name__ == "__main__":
     snips_config = toml.load('/etc/snips.toml')
