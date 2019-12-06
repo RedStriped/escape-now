@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from hermes_python.hermes import Hermes, MqttOptions
+from playsound import playsound
 import datetime
 import random
 import toml
@@ -22,14 +23,12 @@ def subscribe_intent_callback(hermes, intent_message):
 
     if intentname == user_intent("takeYourMeds"):
         name = random.choice(NAMES)
-        result_sentence = "{name} ist cool!".format(name=name)
+        result_sentence = "Das kann ich nicht"
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
     elif intentname == user_intent("Adler"):
-        result_sentence = NAMES[0]
-        current_session_id = intent_message.session_id
-        hermes.publish_end_session(current_session_id, result_sentence)
+        playsound('hawk.wav')
 
     elif intentname == user_intent("Apfel"):
         result_sentence = NAMES[25]
@@ -159,6 +158,16 @@ def subscribe_intent_callback(hermes, intent_message):
     elif intentname == user_intent("Lunge"):
         name = random.choice(NAMES)
         result_sentence = "{name} ist cool!".format(name=name)
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Kaleidoskop"):
+        result_sentence = "Kannst du das auch sehen?"
+        current_session_id = intent_message.session_id
+        hermes.publish_end_session(current_session_id, result_sentence)
+
+    elif intentname == user_intent("Kaleidoskop"):
+        result_sentence = "Kannst du das auch sehen?"
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
