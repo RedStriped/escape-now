@@ -31,7 +31,7 @@ def subscribe_intent_callback(hermes, intent_message):
         hermes.publish_end_session(current_session_id, result_sentence)
     
     elif intentname == user_intent("Apfel"):
-        result_sentence = NAMES[9]
+        result_sentence = "Ich glaube nicht, dass ein Apfel gegen den Doktor helfen wird!"
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
     
@@ -76,7 +76,7 @@ def subscribe_intent_callback(hermes, intent_message):
         hermes.publish_end_session(current_session_id, result_sentence)
 
     elif intentname == user_intent("Smiley"):
-        result_sentence = "Könnt ihr das auch sehen?"
+        result_sentence = "Lächelt doch mal!"
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
@@ -91,7 +91,7 @@ def subscribe_intent_callback(hermes, intent_message):
         hermes.publish_end_session(current_session_id, result_sentence)
 
     elif intentname == user_intent("Nichts"):
-        result_sentence = "Könnt ihr das auch sehen?"
+        result_sentence = "Ich habe euch nichts zu sagen"
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
@@ -101,17 +101,17 @@ def subscribe_intent_callback(hermes, intent_message):
         hermes.publish_end_session(current_session_id, result_sentence)
 
     elif intentname == user_intent("Hexe"):
-        result_sentence = "Könnt ihr das auch sehen?"
+        result_sentence = "Hi, hi, hi, hi!"
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
     elif intentname == user_intent("Frau"):
-        result_sentence = "Könnt ihr das auch sehen?"
+        result_sentence = "Ich denke das ist keine gute Idee!"
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
     elif intentname == user_intent("Schaedel"):
-        result_sentence = "Könnt ihr das auch sehen?"
+        result_sentence = "Immer einen kühlen Kopf bewahren!"
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
@@ -131,7 +131,7 @@ def subscribe_intent_callback(hermes, intent_message):
         hermes.publish_end_session(current_session_id, result_sentence)
 
     elif intentname == user_intent("Teufel"):
-        result_sentence = "Könnt ihr das auch sehen?"
+        result_sentence = "Oh, Ihr habt den Doktor schon kennengelernt?"
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
@@ -201,22 +201,22 @@ def subscribe_intent_callback(hermes, intent_message):
         hermes.publish_end_session(current_session_id, result_sentence)
 
     elif intentname == user_intent("Tuersteher"):
-        result_sentence = "Könnt ihr das auch sehen?"
+        result_sentence = "Ihr könnt hier nicht rein! Oder in eurem Fall raus."
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
     elif intentname == user_intent("Rueckenschmerzen"):
-        result_sentence = "Könnt ihr das auch sehen?"
+        result_sentence = NAMES[9]
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
     elif intentname == user_intent("Krone"):
-        result_sentence = "Könnt ihr das auch sehen?"
+        result_sentence = "Ein Symbol der Macht. Für euch gerade unpassend."
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
     elif intentname == user_intent("Watchmen"):
-        result_sentence = "Könnt ihr das auch sehen?"
+        result_sentence = "Am besten fand ich Rorschach!"
         current_session_id = intent_message.session_id
         hermes.publish_end_session(current_session_id, result_sentence)
 
