@@ -9,7 +9,7 @@ USERNAME_INTENTS = "RedStriped"
 MQTT_BROKER_ADDRESS = "localhost:1883"
 MQTT_USERNAME = None
 MQTT_PASSWORD = None
-NAMES = ["Hannah Ahlers", "Joshua Becker", "Theodor van Campen", "Tim Diefenthaler", "Pia Engel", "Mia Fuchs", "Tim Garlich", "Fridolin Hacker", "Lara Ihmken", "Eric zu Jeddeloh",
+NAMES = ["Hannah Ahlers", "Joshua Becker", "Theodor van Campen", "Tim Diefenthaler", "Pia Engel", "Mia Fux", "Tim Garlich", "Fridolin Hacker", "Lara Ihmken", "Eric zu Jeddeloh",
 "Tim Krüger", "Joshua Lehmann", "Pia Müller", "Hannah Neemeyer", "Liam Ohsenbeck", "Laura Peters", "Jonas Quathammer", "Tom Raabe", "Bob Schneider", "Lara Thiesmeyer",
 "Anna Ullrichs", "Ursula Voigt", "Tom Wolff", "Thomas Xylander", "Jonas Yost", "Thomas Zimmermann"]
 
