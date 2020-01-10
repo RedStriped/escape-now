@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from hermes_python.hermes import Hermes, MqttOptions
+from playsound import playsound
 import datetime
 import random
 import toml
@@ -26,9 +27,10 @@ def subscribe_intent_callback(hermes, intent_message):
         hermes.publish_end_session(current_session_id, result_sentence)
     
     elif intentname == user_intent("Adler"):
-        result_sentence = NAMES[11]
-        current_session_id = intent_message.session_id
-        hermes.publish_end_session(current_session_id, result_sentence)
+        playsound('/var/lib/snips/skills/escape-now/screaming_hawk.wav')
+        #result_sentence = NAMES[11]
+        #current_session_id = intent_message.session_id
+        #hermes.publish_end_session(current_session_id, result_sentence)
     
     elif intentname == user_intent("Apfel"):
         result_sentence = "Ich glaube nicht, dass ein Apfel gegen den Doktor helfen wird!"
